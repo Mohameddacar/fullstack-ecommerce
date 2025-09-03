@@ -1,9 +1,16 @@
 import React from 'react'
 import { Button, Checkbox, Form, Input } from 'antd';
-
+import axios from 'axios'
 const App = () => {
   const onFinish = values => {
-  console.log('Success:', values);
+ 
+
+  let data = axios.post("http://localhost:3000/api/authentication/registration", {
+  username: values.username,
+  email: values.email,
+  password: values.password,
+})
+  console.log(data)
 };
 const onFinishFailed = errorInfo => {
   console.log('Failed:', errorInfo);
