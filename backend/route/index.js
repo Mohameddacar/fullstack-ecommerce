@@ -5,6 +5,8 @@ const router = express.Router();
 const apiRouter = require('./api');
 
 // Use it under /api
-router.use('/api', apiRouter);
+let Api = process.env.API_BASE_URL
+
+router.use(Api, apiRouter);
 
 module.exports = router;
